@@ -1,7 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, Search } from "@/pages";
+import {
+  Home,
+  Search,
+  SinglePost,
+  CreatePost,
+  Bookmarks,
+  Profile,
+  Premium,
+  Settings,
+  SingleUser,
+} from "@/pages";
 import Layout from "./layouts/layout";
-import CreatePost from "./pages/create-post";
 
 export default function App() {
   return (
@@ -28,6 +37,54 @@ export default function App() {
           element={
             <Layout>
               <CreatePost />
+            </Layout>
+          }
+        />
+        <Route
+          path="/post/:id"
+          element={
+            <Layout>
+              <SinglePost />
+            </Layout>
+          }
+        />
+        <Route
+          path="/bookmarks"
+          element={
+            <Layout>
+              <Bookmarks />
+            </Layout>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Layout>
+              <Profile />
+            </Layout>
+          }
+        />
+        <Route
+          path="/premium"
+          element={
+            <Layout>
+              <Premium />
+            </Layout>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <Layout>
+              <Settings />
+            </Layout>
+          }
+        />
+        <Route
+          path="/user/:id"
+          element={
+            <Layout>
+              <SingleUser />
             </Layout>
           }
         />
