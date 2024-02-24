@@ -8,8 +8,17 @@ import {
 } from "lucide-react";
 import PostCard from "@/components/post-card";
 import { fakePosts } from "@/data/fake-post-data";
+import { useQuery } from "@tanstack/react-query";
+import { getAllPosts } from "@/actions/get-posts";
 
 export default function Home() {
+  const { data } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getAllPosts,
+  });
+
+  console.log(data);
+
   return (
     <div>
       <Link
@@ -23,13 +32,13 @@ export default function Home() {
       </Link>
 
       <div className="mt-5 space-y-5">
-        {fakePosts.map((post) => (
+        {data?.posts.map((post: any) => (
           <PostCard
             key={post.postId}
-            post={post.post}
+            post={post.body}
             noOfComments={post.comments}
-            noOfLikes={post.likes}
-            username={post.username}
+            noOfLikes={post.postLikes}
+            username={post.user.username}
             postId={post.postId}
           />
         ))}

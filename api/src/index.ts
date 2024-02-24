@@ -3,6 +3,9 @@ import "dotenv/config";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
+// modules
+import postRoute from "./routes/post.routes";
+
 const app = express();
 
 const PORT = process.env.PORT || 8000;
@@ -18,7 +21,10 @@ app.use(
   })
 );
 
+// routes
+app.use("/api/v1", postRoute);
+
 // app listener
 app.listen(PORT, () => {
-  console.log(`Listening on http://localhost:${PORT}`);
+  console.log(`Server running on PORT:${PORT}`);
 });

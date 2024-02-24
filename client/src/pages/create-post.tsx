@@ -16,8 +16,8 @@ export default function CreatePost() {
       </div>
       <div>
         <Textarea
-          className="resize-none border-none focus-visible:ring-0"
-          rows={40}
+          className="resize-none border-none text-sm focus-visible:ring-0 md:text-base"
+          rows={30}
           placeholder="Write your post..."
         />
       </div>

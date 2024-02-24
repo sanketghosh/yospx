@@ -58,12 +58,12 @@ export default function SidebarNav() {
   ];
   return (
     <div className="flex h-full flex-col justify-between p-2">
-      <div className="mt-2 space-y-2">
+      <div className="mt-2 space-y-5">
         {sidebarLinks.map((item) => (
           <Link
             to={item.href}
             key={item.href}
-            className="flex items-center gap-2 rounded-lg px-2 py-2 hover:bg-secondary"
+            className="flex items-center gap-2 rounded-full border px-4 py-2 hover:bg-secondary"
           >
             <span className="">{item.icon}</span>
             <p>{item.linkName}</p>

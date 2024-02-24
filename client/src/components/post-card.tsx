@@ -21,8 +21,8 @@ interface PostCardPropsType {
 export default function PostCard({
   username,
   post,
-  noOfComments,
-  noOfLikes,
+  noOfComments = 0,
+  noOfLikes = 0,
   postId,
 }: PostCardPropsType) {
   const [likePost, setLikePost] = useState(false);
@@ -51,22 +51,22 @@ export default function PostCard({
       <div className="flex items-center gap-4">
         <span className="flex items-center gap-1">
           <button onClick={handleLikePost}>
-            <HeartIcon size={18} fill={likePost ? "red" : "black"} />
+            <HeartIcon size={18} fill={likePost ? "red" : "none"} />
           </button>
           <p className="text-sm">{formatNumber(noOfLikes)}</p>
         </span>
         <Link className="flex items-center gap-1" to={`/post/${postId}`}>
-          <MessageSquare size={18} fill="black" />
+          <MessageSquare size={18} fill="none" />
           <p className="text-sm">{formatNumber(noOfComments)}</p>
         </Link>
         <span className="flex items-center gap-1">
           <button onClick={handleSetBookmark}>
-            <BookmarkIcon size={18} fill={bookmark ? "#5344ff" : "black"} />
+            <BookmarkIcon size={18} fill={bookmark ? "#03d975" : "none"} />
           </button>
         </span>
         <span className="flex items-center gap-1">
           <button>
-            <SendIcon size={18} fill="black" />
+            <SendIcon size={18} fill="none" />
           </button>
         </span>
       </div>

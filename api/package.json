@@ -18,6 +18,9 @@
     "backend",
     "api"
   ],
+  "prisma": {
+    "seed": "node dist/seed/seed.js"
+  },
   "author": "github.com/sanketghosh",
   "license": "MIT",
   "dependencies": {

@@ -7,6 +7,8 @@ const express_1 = __importDefault(require("express"));
 require("dotenv/config");
 const cors_1 = __importDefault(require("cors"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+// modules
+const post_routes_1 = __importDefault(require("./routes/post.routes"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 8000;
 // basic middlewares
@@ -17,7 +19,9 @@ app.use((0, cors_1.default)({
     origin: process.env.FRONTEND_URL,
     credentials: true,
 }));
+// routes
+app.use("/api/v1", post_routes_1.default);
 // app listener
 app.listen(PORT, () => {
-    console.log(`Listening on http://localhost:${PORT}`);
+    console.log(`Server running on PORT:${PORT}`);
 });
